@@ -1,0 +1,477 @@
+
+@font-face {
+    font-family: 'Oxanium';
+    src: url('../fonts/Oxanium-Regular.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Pavelt';
+    src: url('../fonts/Pavelt.otf') format('opentype'),
+         url('../fonts/Pavelt.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Conthrax';
+    src: url('../fonts/Conthrax-SemiBold.otf') format('opentype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;            
+    scrollbar-color: #A4FF00 #1a1919;
+}
+
+body {
+    font-family: 'Conthrax';
+    /* background-color: #0e171b; */
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: transparent; 
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 6px auto;
+    padding: 10px 23px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;   
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    border: 1px solid #A4FF00;
+    padding: 10px 28px;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.646);
+    color: #E3EBED;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #E3EBED;
+    font-size: 1rem;
+    transition: color 0.5s, transform 0.3s;
+}
+
+.nav-menu li a:hover {
+    color: #A4FF00;
+    font-style: italic;
+}
+
+.intro-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    margin-top: -55px;
+}
+
+.intro {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+}
+
+.left {
+    flex: 1;
+    text-align: right;
+    letter-spacing: 3px;
+}
+
+.right {
+    position: relative;  
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 120px;
+}
+
+.left h2 {
+    color: #E3EBED;
+    font-size: 4em;
+}
+
+.left h4 {
+    color: #E3EBED;
+    font-size: 2em;
+}
+
+.right h1 {
+    position: relative;
+    color: #A4FF00;
+    font-size: 5.7em;
+    margin: 0;
+    letter-spacing: 3px;
+}
+
+.right h1::before {
+    content: "PORTFOLIO"; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 5.7rem;
+    color: rgba(164, 255, 0, 0.1);
+    z-index: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: 3px;
+    transform: translate(0, -40px); 
+}
+
+.right h1::after {
+    content: "PORTFOLIO"; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 5.7rem;
+    color: rgba(166, 255, 0, 0.068); 
+    z-index: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: 3px;
+    transform: translate(0, -80px); 
+}
+
+hr {
+    border: none;
+    height: 2px; 
+    background-color: #A4FF00;
+    width: 100%; 
+    margin: 0 auto; 
+}
+
+.section-title {
+    color: #E3EBED;
+    padding: 23px 20px;
+    left: 20px;
+    float: left;
+}
+
+.section-title a {
+    text-decoration: none;
+    animation: switchColors 0.7s infinite alternate;
+    letter-spacing: 2px;
+}
+
+@keyframes switchColors {
+    0% {
+        color: #A4FF00; 
+    }
+    100% {
+        color: #E3EBED;
+    }
+}
+
+.section-title a:hover {
+    font-style: italic;
+}
+
+.about-me p {
+    color: #E3EBED;
+    font-family: 'Oxanium';
+    text-align: right;
+    width: 60%;
+    float: right;
+    margin: 0;
+    padding: 10px 25px 40px 20px;
+    line-height: 30px;
+    white-space: pre-line;
+}
+
+
+.connect-text {
+    padding: 30px 30px;
+}
+
+.connect-text h3 {
+    color: #A4FF00;
+    font-size: 4em;
+}
+
+.connect-text  h3 span {
+    color: #E3EBED;
+    font-size: 2rem;
+}
+
+
+.contacts {
+    text-align: right;
+    color: #E3EBED;
+    font-family: 'Oxanium';
+    line-height: 35px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.contact-item i {
+    color: #A4FF00;
+    font-size: 1.4rem;
+}
+
+.contact-item span {
+    margin-right: 8px;
+}
+
+
+.grain-overlay {
+    position: fixed;
+    inset: 0;            
+    pointer-events: none;  
+    background-image: url("../images/grain.png"); 
+    background-size: 200px 200px;
+    background-repeat: repeat;
+    opacity: 1;     
+    z-index: -1;
+}
+
+
+@media (max-width: 1200px) {
+    .left h2 { font-size: 3em; }
+    .left h4 { font-size: 1.5em; }
+    .right h1 { font-size: 4.5em; }
+    .right h1::before { font-size: 1em; transform: translate(0, -30px); }
+    .right h1::after { font-size: 1em; transform: translate(0, -60px); }
+}
+
+@media (max-width: 750px) {
+    .intro {
+        flex-direction: column;
+        align-items: center;
+        /* padding: 20px; */
+    }
+
+    .left {
+        display: flex;
+        flex-direction: column;   
+        justify-content: flex-end;
+        align-items: flex-end;    
+        height: 100%;             
+        padding: 10px;            
+    }
+
+    
+    .right {
+        display: flex;
+        justify-content: flex-start; 
+        align-items: flex-start;       
+        padding: 10px;
+    }
+
+    .left h2 { font-size: 2.5em; }
+    .left h4 { font-size: 1.2em; }
+    .right h1 { font-size: 2.6em; }
+    .right h1::before { font-size: 1em; transform: translate(0, -20px); }
+    .right h1::after { font-size: 1em; transform: translate(0, -40px); }
+
+    .about-me p {
+        width: 90%;
+        float: right;
+        padding: 27px 20px 35px 20px;
+        line-height: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-menu {
+        flex-direction: row;
+        gap: 20px;
+    }
+}
+
+
+
+
+.experience {
+    display: grid;
+    grid-template-columns: 1fr 3fr; 
+    gap: 20px;
+    padding: 50px 25px 55px 25px;
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+.exp-item {
+    display: contents;
+    font-family: 'Oxanium';
+    padding: 15px;
+}
+
+.exp-title {
+    font-weight: bold;
+    color: #E3EBED;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+
+.exp-title #date-range {
+    color: #e3ebed50;
+    font-size: 0.75em;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.exp-title #company {
+    position: relative;
+    top: -5px;
+    color: #e3ebed49;
+    font-size: 0.6em;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.exp-description {
+    color: #E3EBED;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #A4FF00;
+    line-height: 26px;
+}
+
+.exp-item:last-child {
+    border-bottom: none;
+}
+
+.tech-stack {
+    margin: 10px 30px 0 0;
+}
+
+.tech-stack img {
+    width: auto; 
+    height: 25px;
+    margin-right: 10px; 
+}
+
+.tech-stack img:last-child {
+    margin-right: 0; 
+}
+
+@media (max-width: 770px) {
+    .experience {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+    }
+    .exp-title {
+        font-size: 1.1em; 
+    }
+    .exp-description {
+        font-size: 0.95em;
+    }
+    .exp-item {
+        padding: 15px; 
+        margin-bottom: 20px;
+    }
+
+    .connect-text {
+        padding: 30px 30px;
+    }
+
+    .connect-text h3 {
+        color: #A4FF00;
+        font-size: 3em;
+    }
+
+    .connect-text  h3 span {
+        color: #E3EBED;
+        font-size: 2rem;
+    }
+
+    .contact-item {
+        font-size: 0.9em;
+    }
+}
+
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px; 
+    background: #1a1919; 
+}
+
+
+::-webkit-scrollbar-track {
+    background: #1a1919; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #A4FF00; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #E3EBED;
+}
+
+.footer {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #a6ff0013;
+    color: #E3EBED;
+    text-align: center;
+    font-family: 'Oxanium';
+    font-size: 0.7rem;
+}
+
+.footer p {
+    margin: 0;
+}
+
+
+
+
+#backToTop {
+    position: fixed;      
+    bottom: 15px;           
+    right: 15px;            
+    display: none;          
+    background-color: #A4FF00;
+    color: #2e2e2e;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 50%;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
+#backToTop:hover {
+    background-color: #E3EBED;
+    transform: scale(1.1);
+}
+
+.autoHide {
+    animation: autoHideAnimation both;
+    animation-timeline: view(5% 100%);
+}
+
+@keyframes autoHideAnimation {
+    from {
+        opacity: 1;
+        transform:  translateX(0) scale(1);
+    }
+    to {
+        
+        opacity: 0;
+        transform:  translateX(50px) scale(0.3);
+    }
+}

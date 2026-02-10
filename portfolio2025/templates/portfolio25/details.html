@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+        <link rel="stylesheet" href="{% static 'css/details.css' %}">
+        <link href="{% static 'images/LPlogo.png' %}" rel="icon">
+        <title>Lei Portfolio | Project</title>
+    </head>
+
+    <body>
+
+        <nav class="navbar">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="{% url 'projects' %}"><i class="fa-solid fa-arrow-left"></i> Back</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+
+            <!-- TEXT SECTION -->
+            <div class="left">
+                <h2>{{ project.proj_name }}<a href="{{ project.proj_url }}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a></h2></br>
+                <p>
+                    {{ project.proj_desc }}
+                </p>
+                <br/>
+                <p>
+                    Year: {{ project.year }}
+                </p>
+
+                <div class="techs">
+                    <ul>
+                        {% for item in project.proj_languages %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="right">
+                <iframe src="{{ project.proj_pdf.url }}#toolbar=0"></iframe>
+            </div>
+
+        </div>
+
+        <div class="grain-overlay"></div>
+
+    </body>
+</html>

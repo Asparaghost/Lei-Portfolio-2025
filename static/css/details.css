@@ -1,0 +1,250 @@
+
+@font-face {
+    font-family: 'Oxanium';
+    src: url('../fonts/Oxanium-Regular.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Pavelt';
+    src: url('../fonts/Pavelt.otf') format('opentype'),
+         url('../fonts/Pavelt.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Conthrax';
+    src: url('../fonts/Conthrax-SemiBold.otf') format('opentype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;            
+    scrollbar-color: #A4FF00 #1a1919;
+}
+
+body {
+    font-family: 'Conthrax';
+
+}
+
+.navbar {
+    /* position: sticky;  */
+    position: absolute;
+    top: 0;
+    width: 30%;
+    background-color: transparent; 
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 6px auto;
+    padding: 10px 23px;
+    display: flex;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    border: 1px solid #A4FF00;
+    padding: 10px 28px;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.646);
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #E3EBED;
+    font-size: 1rem;
+    transition: color 0.5s, transform 0.3s;
+}
+
+.nav-menu li a:hover {
+    color: #A4FF00;
+    font-style: italic;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.left {
+    width: 40%;
+    padding: 13vh 25px 25px 25px;
+    overflow-y: auto;
+    word-wrap: break-word;
+    border-right: 3px solid #A4FF00;
+    position: relative;
+    height: 100vh;
+}
+
+.left h2 {
+    color: #A4FF00;
+    letter-spacing: 1px;
+}
+
+.left h2 a {
+    color: #585858;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.left h2 a:hover {
+    color: #A4FF00;
+}
+
+.left p {
+    color: #E3EBED;
+    font-family: 'Oxanium';
+    font-size: 0.9em;
+    line-height: 25px;
+}
+
+.techs {
+    position: absolute;
+    bottom: 30px;
+    text-align: left;
+    color: #e3ebed74;
+    font-family: 'Oxanium';
+    line-height: 1.8;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.right {
+    width: 60%;
+    height: 100%;
+}
+
+.right iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+@media (max-width: 770px) {
+    .container {
+        flex-direction: column; /* Stack vertically */
+        height: auto;
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .left {
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #ddd;
+        padding: 9vh 25px 25px 25px;
+        height: 35vh;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    .right {
+        width: 100%;
+        /* height: 100%; */
+        height: 65vh;
+    }
+    .right iframe {
+        height: 100%;
+    }
+    .techs {
+        position: static;
+        margin-top: 20px;
+        bottom: 0;
+        text-align: left;
+        color: #e3ebed74;
+        font-family: 'Oxanium';
+        line-height: 1.8;
+        font-size: 0.8rem;
+    }
+}
+
+.grain-overlay {
+    position: fixed;
+    inset: 0;            
+    pointer-events: none;  
+    background-image: url("../images/grain.png"); 
+    background-size: 200px 200px;
+    background-repeat: repeat;
+    opacity: 1;     
+    z-index: -1;
+}
+
+@media (max-width: 600px) {
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-menu li a i {
+        display: none;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px; 
+    background: #1a1919; 
+}
+
+
+::-webkit-scrollbar-track {
+    background: #1a1919; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #A4FF00; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #E3EBED;
+}
+/* 
+.footer {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #a6ff0013;
+    color: #E3EBED;
+    text-align: center;
+    font-family: 'Oxanium';
+    font-size: 0.7rem;
+}
+
+.footer p {
+    margin: 0;
+}
+
+ */
+
+
+#backToTop {
+    position: fixed;      
+    bottom: 15px;           
+    right: 15px;            
+    display: none;          
+    background-color: #A4FF00;
+    color: #2e2e2e;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 50%;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
+#backToTop:hover {
+    background-color: #E3EBED;
+    transform: scale(1.1);
+}
+
+

@@ -1,0 +1,272 @@
+
+@font-face {
+    font-family: 'Oxanium';
+    src: url('../fonts/Oxanium-Regular.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Pavelt';
+    src: url('../fonts/Pavelt.otf') format('opentype'),
+         url('../fonts/Pavelt.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Conthrax';
+    src: url('../fonts/Conthrax-SemiBold.otf') format('opentype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: thin;            
+    scrollbar-color: #A4FF00 #1a1919;
+}
+
+body {
+    font-family: 'Conthrax';
+    overflow-x: hidden;
+    /* background-color: #0e171b; */
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 30%;
+    background-color: transparent; 
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 6px auto;
+    padding: 10px 23px;
+    display: flex;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    border: 1px solid #A4FF00;
+    padding: 10px 28px;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.646);
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #E3EBED;
+    font-size: 1rem;
+    transition: color 0.5s, transform 0.3s;
+}
+
+.nav-menu li a:hover {
+    color: #A4FF00;
+    font-style: italic;
+}
+
+hr {
+    border: none;
+    height: 2px; 
+    background-color: #A4FF00;
+    width: 100%; 
+    margin: 0 auto; 
+}
+
+.section-title {
+    color: #E3EBED;
+    padding: 18px 20px;
+    left: 20px;
+    float: left;
+}
+
+.section-title h6 {
+    font-size: 1.2em;
+}
+
+.section-title span {
+    animation: switchColors 1s infinite alternate;
+    letter-spacing: 2px;
+    font-size: 2.5em;
+}
+
+@keyframes switchColors {
+    0% {
+        color: #A4FF00; 
+    }
+    100% {
+        color: #E3EBED;
+    }
+}
+
+.section-title a:hover {
+    font-style: italic;
+}
+
+.grain-overlay {
+    position: fixed;
+    inset: 0;            
+    pointer-events: none;  
+    background-image: url("../images/grain.png"); 
+    background-size: 200px 200px;
+    background-repeat: repeat;
+    opacity: 1;     
+    z-index: -1;
+}
+
+
+@media (max-width: 600px) {
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-menu li a i {
+        display: none;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px; 
+    background: #1a1919; 
+}
+
+
+::-webkit-scrollbar-track {
+    background: #1a1919; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #A4FF00; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #E3EBED;
+}
+
+.footer {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #a6ff0013;
+    color: #E3EBED;
+    text-align: center;
+    font-family: 'Oxanium';
+    font-size: 0.7rem;
+}
+
+.footer p {
+    margin: 0;
+}
+
+
+
+
+#backToTop {
+    position: fixed;      
+    bottom: 15px;           
+    right: 15px;            
+    display: none;          
+    background-color: #A4FF00;
+    color: #2e2e2e;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 50%;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
+#backToTop:hover {
+    background-color: #E3EBED;
+    transform: scale(1.1);
+}
+
+
+
+.wrapper{
+    width: 100vw;
+    display: flex;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Cabin', sans-serif;
+    font-size: 80px;
+    color: #ffffff;
+}
+
+.container{
+    margin: 30px 25px;
+    display: grid;
+    gap: 30px 60px;
+    grid-template-columns: repeat(auto-fill, minmax(30vw, 1fr));
+}
+
+.image{
+    width: 100%; 
+    height: auto; 
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px 20px;
+    background-color: none;
+}
+
+.cards {
+    height: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.cards a {
+    text-decoration: none;
+    background-color: none;
+}
+
+.cards a h2{
+    font-family: 'Oxanium';
+    /* text-transform: uppercase; */
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #000000;
+    margin: -30px 0 0 5px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    text-align: left;
+    padding-left: 15px;
+    color: #ffffff;
+}
+
+.cards a:hover {
+    background-color: #ffffff18;
+    transition: all .5s ease-out;
+    outline: 1px solid #A4FF00;
+}
+
+
+@media (max-width: 770px) {
+    .container {
+        margin: 20px 10px 40px;
+        gap: 15px;
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 480px) {
+    body {
+        overflow-x: hidden;
+    }
+    .container {
+        margin: 10px 5px 20px;
+        gap: 15px;
+        grid-template-columns: 1fr;
+    }
+}

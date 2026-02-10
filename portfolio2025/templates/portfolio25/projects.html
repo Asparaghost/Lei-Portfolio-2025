@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+        <link rel="stylesheet" href="{% static 'css/projects.css' %}">
+        <link href="{% static 'images/LPlogo.png' %}" rel="icon">
+        <title>Lei Portfolio | Projects</title>
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="{% url 'index' %}"><i class="fa-solid fa-arrow-left"></i> Home</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <hr/> 
+            <div class="section-title">
+                <h5>THE</h5>
+                <span>PROJECTS</span>
+            </div>
+        <hr/>
+
+        <div class="wrapper">
+            <div class="container">
+                {% for proj in projects %}
+                <div class="cards">
+                    <a href="{% url 'proj_info' proj_hash=proj.get_hashed_id %}">
+                        <img class="image" src="{{ proj.proj_image.url }}" alt="Project Image"/>
+                        <h2>{{ proj.proj_name }}</h2>
+                    </a>
+                </div>
+                {% endfor %}
+                <!-- <div class="cards">
+                    <a href="">
+                        <img class="image" src="1.webp" alt="Project Image"/>
+                        <h2>Test Application</h2>
+                    </a>
+                </div>
+                <div class="cards">
+                    <a href="">
+                        <img class="image" src="1.webp" alt="Project Image"/>
+                        <h2>Test Application</h2>
+                    </a>
+                </div>
+                <div class="cards">
+                    <a href="">
+                        <img class="image" src="1.webp" alt="Project Image"/>
+                        <h2>Test Application</h2>
+                    </a>
+                </div> -->
+            </div>
+        </div>
+
+
+        <!-- <footer class="footer">
+            <p>&copy; 2025 LeiFab Portfolio. All rights reserved.</p>
+        </footer> -->
+
+        <button id="backToTop" title="TOP"><i class="fa-solid fa-angles-up"></i></button>
+
+        <div class="grain-overlay"></div>
+
+    </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <link href="{% static 'images/LPlogo.png' %}" rel="icon">
+        <title>Lei Portfolio</title>
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <div class="nav-container">
+                <ul class="nav-menu">
+                    <li><a href="{% url 'index' %}">Home</a></li> |
+                    <li><a href="{% url 'projects' %}">Projects</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="intro-container">
+            <div class="intro autoHide" >
+                <div class="left">
+                    <!-- <div class="text"> -->
+                    <h2>Hello!</br>
+                        Welcome
+                    </h2>
+                    <h4>to my</h4>
+                    <!-- </div> -->
+                </div>
+                <div class="right">
+                    <h1>PORTFOLIO</h1>
+                </div>
+            </div>
+        </div>
+
+        <hr/> 
+            <h1 class="section-title">ABOUT ME</h1>
+        <hr/>
+            
+        <div class="about-me">
+            {% for info in informations %}
+            <p>
+                {{ info.intro }}
+            </p>
+            {% endfor %}
+        </div>
+
+        <hr/> 
+            <h1 class="section-title">RELEVANT EXPERIENCE / WORK EXPERIENCE</h1>
+        <hr/>
+
+        <div class="experience">
+            {% for exp in experiences %}
+            <div class="exp-item">
+                <div class="exp-title">{{ exp.position }}
+                    <br/><span id="date-range">{{ exp.date_serve }}</span>
+                    <br/><span id="company">{{ exp.location }}</span>
+                </div>
+                <div class="exp-description">{{ exp.exp_desc }}
+                    <div class="tech-stack">
+                        {% for tech in exp.tech_used.all %}
+                            <img src="{{ tech.icon.url }}" alt="{{ tech.name }}" title="{{ tech.name }}">
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <hr/> 
+            <h1 class="section-title">WANNA SEE MY PROJECTS? <a href="{% url 'projects' %}">ABSOLUTELY!</a></h1>
+        <hr/>
+
+        <div class="connect">
+            <div class="connect-text">
+                <h3>GET<br/><span>IN</span> TOUCH</h3>
+            </div>
+            <div class="contacts">
+                {% for info in informations %}
+                <div class="contact-item">
+                    <span>{{ info.email_add }}</span>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="contact-item">
+                    <span>{{ info.facebook_url }}</span>
+                    <i class="fa-brands fa-square-facebook"></i>
+                </div>
+                <div class="contact-item">
+                    <span>{{ info.address }}</span>
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+
+        <footer class="footer">
+            <p>&copy; 2025 Lei Portfolio. All rights reserved.</p>
+        </footer>
+
+        <button id="backToTop" title="TOP"><i class="fa-solid fa-angles-up"></i></button>
+
+        <div class="grain-overlay"></div>
+
+        <script>
+            const backToTop = document.getElementById("backToTop");
+
+            window.onscroll = function() {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    backToTop.style.display = "block";
+                } else {
+                    backToTop.style.display = "none";
+                }
+            };
+
+            backToTop.addEventListener("click", () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        </script>
+
+        <script>
+            let isScrolling = false;
+            const sections = document.querySelectorAll(".snap");
+
+            window.addEventListener("wheel", (e) => {
+                if (isScrolling) return;
+
+                if (e.deltaY > 0) {  
+                    isScrolling = true;
+
+                    const current = window.scrollY;
+                    const nextSection = Array.from(sections).find(
+                        sec => sec.offsetTop > current + 10
+                    );
+
+                    if (nextSection) {
+                        nextSection.scrollIntoView({ behavior: "smooth" });
+                    }
+
+                    setTimeout(() => isScrolling = false, 700);
+                }
+            });
+        </script>
+
+
+
+    </body>
+</html>
