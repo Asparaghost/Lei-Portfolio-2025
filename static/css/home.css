@@ -459,9 +459,11 @@ hr {
     transform: scale(1.1);
 }
 
-.autoHide {
-    animation: autoHideAnimation both;
-    animation-timeline: view(5% 100%);
+@supports (animation-timeline: view()) {
+    .autoHide {
+        animation: autoHideAnimation both;
+        animation-timeline: view(5% 100%);
+    }
 }
 
 @keyframes autoHideAnimation {
